@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="首页">
+    <meta name="author" content="JinWYP">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!--<link rel="icon" href="../../favicon.ico">-->
+
+
+    <title>O&#39;Relly Generator  </title>
+
+    <!-- Bootstrap -->
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./dist/main.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="websiteApp" ng-cloak>
+
+
+
+<div class="container-fluid ogbox" ng-controller="ogController as og">
+
+    <div class="row">
+
+        <div class="col-md-7">
+            <div class="book_cover">
+              <p class="book_version" contenteditable="true">第1版</p>
+              <div class="book_head" ng-class="og.data.currentColor.style">
+                    <p class="subtitle_en" contenteditable="true">JavaScript: from start to quit</p>
+                </div>
+                <div id="book_body">
+                    <p class="subtitle_ja_above" contenteditable="true"></p>
+                    <div class="book_title_cover " ng-class="og.data.currentColor.style">
+                        <p class="book_title_above" contenteditable="true">从入门到放弃</p>
+                        <p class="book_title_below" contenteditable="true">JavaScript</p>
+                    </div>
+                    <p class="subtitle_ja_below" contenteditable="true"> 999种框架分析与对比</p>
+                </div>
+                <div class="animal" dragbox left="60" top="20" limitleft="-70" limitright="230" maxwidth="320">
+                    <img class="coverAnimal" ng-src={{og.data.currentAnimal.imageUrl}} alt="{{og.data.currentAnimal.name}}">
+                </div>
+                <div class="book_foot">
+                    <div class="foot_left">
+                        <p id="logo_en" contenteditable="true">O<span class="apostrophe ">'</span>Reilly 出版社<sup>&reg;</sup></p>
+                    </div>
+                    <div class="foot_right">
+                        <p class="author" contenteditable="true">资深前端砖家 著</p>
+                        <p id="translator" contenteditable="true">一线web幸存者 译</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-5">
+            <div class="theme_box">
+                <p id="ribbon_half" class="hidden"></p>
+                <p class="box_title">Theme Picker</p>
+                <ul>
+                    <li ng-repeat="color in og.data.colorList" ng-class="color.name" title="{{color.name}}" ng-click="og.event.clickColor(color)">{{color.name}}</li>
+                </ul>
+            </div>
+
+            <div class="animal_box">
+                <p class="box_title">Animal Picker</p>
+                <ul>
+                    <li ng-repeat="animal in og.data.animalList" ng-class="animal.style" title="{{animal.name}}" ng-click="og.event.clickAnimal(animal)">{{animal.name}}</li>
+                </ul>
+            </div>
+
+            <div class="button_box">
+                <a href="javascript:void(0);" id="capture_button" class="icon_camera" ng-click="og.event.screenShot()"><img src="./src/css/images/og/camera.png"></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript" src="./bower_components/jquery-legacy/dist/jquery.min.js"></script>
+<script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./dist/dom-to-image.min.js"></script>
+<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="./bower_components/ngstorage/ngStorage.min.js"></script>
+
+<script type="text/javascript" src="./src/js/app.js"></script>
+<script type="text/javascript" src="./src/js/directive/dragbox.directive.js"></script>
+<script type="text/javascript" src="./src/js/controller/og.controllers.js"></script>
+
+
+
+
+</body>
+</html>
